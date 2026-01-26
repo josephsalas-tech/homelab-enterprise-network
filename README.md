@@ -38,7 +38,9 @@ The network is segmented into four primary VLANs, each serving a defined operati
 Screenshots of the TP-Link ER605 VLAN configuration and DHCP scopes are included below.
 
 **Screenshots:**
-- ER605 VLAN configuration page  
+- ER605 VLAN configuration page
+- <img width="1903" height="906" alt="image" src="https://github.com/user-attachments/assets/6879c0bb-e63f-49bf-b291-1506098eb0e0" />
+
 - DHCP configuration per VLAN  
 
 ## Network Topology
