@@ -48,22 +48,23 @@ Screenshots of the TP-Link ER605 VLAN configuration and DHCP scopes are included
 High-level traffic flow for the network:
 
 [ Internet ]
-|
+     |
 [Xfinity Modem - Bridge Mode]
-|
+     |
 [TP-Link Omada ER605]
-|
+     |
 [Tenda Managed Switch]
-├── VLAN 10 → Home / Admin Devices
-├── VLAN 20 → Guest Network
-├── VLAN 30 → IoT Devices
-└── VLAN 40 → Homelab / NAS
-|
-[Proxmox Host]
-├── Windows Server VM (Active Directory)
-├── Windows 10 Pro Client VM
-├── TrueNAS SCALE VM
-└── Linux Utility VMs
+     ├── VLAN 10 → Admin Devices
+     ├── VLAN 20 → Guest Network
+     ├── VLAN 30 → IoT Devices
+     └── VLAN 40 → Proxmox / TrueNAS / Servers
+              |
+          [Proxmox Host]
+              ├── Windows Server VM
+              ├── Windows Client VM
+              ├── TrueNAS SCALE VM
+              └── Linux Utility VMs
+
 
 
 **Diagrams Included:**
