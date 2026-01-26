@@ -39,9 +39,10 @@ Screenshots of the TP-Link ER605 VLAN configuration and DHCP scopes are included
 
 **Screenshots:**
 - ER605 VLAN configuration page
-- <img width="1903" height="906" alt="image" src="https://github.com/user-attachments/assets/6879c0bb-e63f-49bf-b291-1506098eb0e0" />
+<img width="1903" height="906" alt="image" src="https://github.com/user-attachments/assets/6879c0bb-e63f-49bf-b291-1506098eb0e0" />
 
 - DHCP configuration per VLAN  
+<img width="967" height="901" alt="image" src="https://github.com/user-attachments/assets/705b3d68-a48e-4b4c-a803-d94c041eba4a" />
 
 ## Network Topology
 High-level traffic flow for the network:
