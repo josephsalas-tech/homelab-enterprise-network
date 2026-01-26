@@ -41,9 +41,97 @@ Screenshots of the TP-Link ER605 VLAN configuration and DHCP scopes are included
 - ER605 VLAN configuration page  
 - DHCP configuration per VLAN  
 
----
-
 ## Network Topology
 High-level traffic flow for the network:
+
+[ Internet ]
+|
+[Xfinity Modem - Bridge Mode]
+|
+[TP-Link Omada ER605]
+|
+[Tenda Managed Switch]
+├── VLAN 10 → Home / Admin Devices
+├── VLAN 20 → Guest Network
+├── VLAN 30 → IoT Devices
+└── VLAN 40 → Homelab / NAS
+|
+[Proxmox Host]
+├── Windows Server VM (Active Directory)
+├── Windows 10 Pro Client VM
+├── TrueNAS SCALE VM
+└── Linux Utility VMs
+
+
+**Diagrams Included:**
+- Physical network topology
+- Switch port VLAN assignments
+
+---
+
+## Routing, Firewalling, and Access Control
+- The **TP-Link Omada ER605** functions as the central routing and firewall platform.
+- Inter-VLAN routing is explicitly controlled to limit lateral movement.
+- Guest (VLAN 20) and IoT (VLAN 30) networks are isolated from administrative and server resources.
+- The homelab VLAN (VLAN 40) is restricted to infrastructure services only.
+- Wireless SSIDs are mapped to their corresponding VLANs through the access point.
+
+This segmentation model reflects best practices commonly used in:
+- School district networks
+- Small enterprise environments
+- MSP-managed infrastructure
+
+---
+
+## Services Hosted on the Network
+- **Virtualization:** Proxmox VE
+- **Directory Services:** Windows Server Active Directory (lab environment)
+- **Storage:** TrueNAS SCALE with SMB shares and dataset permissions
+- **DNS Filtering:** Pi-hole (VLAN-aware configuration)
+- **Client Systems:** Windows 10 Pro domain-joined virtual machine
+
+All services are intentionally segmented to reinforce security boundaries and provide realistic troubleshooting scenarios.
+
+---
+
+## Validation & Testing
+The following functionality was verified during implementation:
+- Devices receive correct IP addresses based on VLAN membership
+- Unauthorized VLAN access is blocked by routing rules
+- NAS SMB shares are accessible only from approved networks
+- Wireless clients are isolated based on SSID-to-VLAN mapping
+- Virtual machines retain connectivity after reboots and DHCP renewals
+
+**Validation Screenshots:**
+- Proxmox VM overview
+- TrueNAS SMB datasets and permissions
+- Pi-hole dashboard and DNS query statistics
+
+---
+
+## Troubleshooting & Lessons Learned
+- DNS behavior across VLANs requires explicit configuration to prevent fallback to public resolvers
+- Wireless VLAN tagging must match router and switch configuration exactly
+- Bridge-mode ISP modems simplify firewall design but require WAN verification
+- Consistent documentation significantly reduces recovery time after configuration changes
+
+---
+
+## Future Improvements
+- Centralized logging using Syslog or Wazuh
+- Dedicated NTP server for consistent timestamps
+- Single Sign-On (SSO) integration across services
+- VPN access into VLAN 40 for secure remote administration
+- Expanded switching infrastructure and structured cabling
+
+---
+
+## Why This Project Matters
+This homelab was built to demonstrate **practical IT support, networking, and troubleshooting skills** rather than purely theoretical knowledge. It reflects real-world constraints, incremental problem-solving, and documentation practices expected in production IT environments.
+
+---
+
+## Resume / LinkedIn Summary
+Designed and documented a VLAN-segmented enterprise-style network using TP-Link Omada routing, managed switching, Proxmox virtualization, and NAS services to simulate school district and small-enterprise IT environments.
 
 
