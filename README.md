@@ -13,7 +13,6 @@ The environment supports multiple trust zones (administrative devices, guests, I
 - Virtualization and NAS integration
 - Technical documentation and troubleshooting methodology
 
----![enterprise network](https://github.com/user-attachments/assets/19c05c74-ec8a-4f41-8153-bad0cb88f095)
 
 
 ## Network Hardware & Core Components
@@ -24,7 +23,7 @@ The environment supports multiple trust zones (administrative devices, guests, I
 - **Server Host:** Proxmox VE
 - **Storage:** TrueNAS SCALE (virtual machine)
 
----
+------![enterprise network](https://github.com/user-attachments/assets/19c05c74-ec8a-4f41-8153-bad0cb88f095)
 
 ## VLAN Architecture
 The network is segmented into four primary VLANs, each serving a defined operational purpose.
